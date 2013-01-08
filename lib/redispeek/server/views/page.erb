@@ -1,0 +1,29 @@
+
+        
+        <div class="span2">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">Keys</li>
+              <%= keys_to_menu(@keys) %>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+
+        <div class="span10">
+
+          <div class="row-fluid">
+            <div class="span4">
+              <h4>Heading</h4>
+              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            </div><!--/span-->
+          </div><!--/row-->
+
+          <div class="row-fluid">
+            <div class="span8">
+              <h2><%= @key %></h2>
+              <pre><code><%= @value.inspect %></code></pre>
+            </div>
+          </div>
+
+        </div><!--/span-->
+   

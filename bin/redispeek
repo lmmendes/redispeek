@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+
+$:.unshift File.expand_path(File.join(File.dirname(__FILE__), '..', 'lib'))
+
+begin
+  require 'vegas'
+rescue LoadError
+  require 'rubygems'
+  require 'vegas'
+end
+
+require 'redispeek/server'
+
+Vegas::Runner.new(Redispeek::Server, 'redispeek') do |runner, opts, app|
+  opts.on('-r redis-connection', '--redis-connection', 'set the Redis connection string') do |redis_conf|
+    $stderr.puts "Using redis configuration: #{redis_conf}"
+    Redispeek.redis = redis_conf
+  end
+end
+

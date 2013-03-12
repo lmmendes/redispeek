@@ -4,7 +4,7 @@
     <title>Redispeek v<%=  %> - hostname</title>
     <!-- Bootstrap -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://raw.github.com/r043v/jTree/master/jtree.css">
+    <link href="/css/skin-custom/custom.css" rel="stylesheet">    
     <style type="text/css">
       body {
         padding-top: 60px;
@@ -15,14 +15,12 @@
       }
     </style>
     <script src="/js/jquery.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>    
-    <script src="http://jtree.tk/js/jtree/jtree.js" type="text/javascript"></script>
+    <script src="/js/jquery-ui.custom.min.js"></script>    
+    <script src="/js/bootstrap.min.js"></script>  
+    <script src="/js/jquery.dynatree.min.js"></script>   
     <script type="text/javascript">
       $(function(){
-
-        jQuery("ul.nav > ul").jtree({ multiFolder:true });
-
-
+          //$(".tree").dynatree({});
       });
     </script>
   </head>
@@ -42,7 +40,7 @@
           <div class="nav-collapse collapse">
 
             <form class="navbar-search pull-right">
-              <input type="text" class="search-query" placeholder="Search">
+              <input type="text" class="search-query" name="s" value="<%= params[:s] %>" placeholder="Search">
             </form>
 
             <p class="navbar-text pull-right" style="margin-right: 10px">
@@ -68,7 +66,7 @@
       <hr>
 
       <footer>
-        <center><p>&copy; Luis Mendes @ <%= Date.today.year %> </p></center>
+        <center><p>&copy; Luis Mendes @ <%= Date.today.year %> (<%= Redispeek::VERSION.to_s %>)</p></center>
       </footer>
 
     </div><!--/.fluid-container-->

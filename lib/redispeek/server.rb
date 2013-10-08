@@ -1,4 +1,4 @@
-# -*- encoding: utf-8 -*-
+# encoding: utf-8
 
 require 'redispeek'
 require 'sinatra/base'
@@ -21,7 +21,7 @@ module Redispeek
           k.each do |v|
             x=(x[v]||={})
           end
-        end 
+        end
         return h
       end
 
@@ -47,15 +47,15 @@ module Redispeek
       if params[:s].to_s.strip != ''
         @keys = keys_to_hash( Redispeek.redis.keys( params[:s] ) )
       else
-        @keys = keys_to_hash( Redispeek.redis.keys )        
+        @keys = keys_to_hash( Redispeek.redis.keys )
       end
     end
-    
+
     base_path = File.dirname( __FILE__ )
 
     set :views, File.join( base_path, 'server', 'views' ).to_s
 
-    # set :show_exceptions, false
+    set :show_exceptions, false
 
     set :public_folder, File.join( base_path, 'server', 'public' )
 
@@ -84,14 +84,14 @@ module Redispeek
         erb page.to_sym, {:layout => layout}, :redispeek => Redispeek
       rescue Errno::ECONNREFUSED
         erb :error, {:layout => false}, :error => "Can't connect to Redis!"
-      end      
+      end
     end
 
     get '/' do
       show 'page'
     end
 
-    get '/peek/:key' do 
+    get '/peek/:key' do
       @key   = params[:key]
       @value = redis_get( @key )
       show 'page'

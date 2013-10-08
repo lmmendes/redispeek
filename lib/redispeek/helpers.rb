@@ -1,4 +1,4 @@
-# -*- encoding: utf-8 -*-
+# encoding: utf-8
 
 module Redispeek
   module Helpers
@@ -6,6 +6,6 @@ module Redispeek
     def redis
       Redispeek.redis
     end
-    
+
   end
 end

@@ -1,6 +1,7 @@
-# -*- encoding: utf-8 -*-
+# encoding: utf-8
 
 require "redis"
+
 require File.expand_path("redispeek/version", File.dirname(__FILE__))
 require File.expand_path("redispeek/helpers", File.dirname(__FILE__))
 
@@ -8,7 +9,7 @@ module Redispeek
 
   include Helpers
   extend self
-    
+
   def redis=(server)
     case server
     when String
@@ -25,7 +26,7 @@ module Redispeek
     end
     @redis
   end
-    
+
   def redis
     return @redis if @redis
     self.redis = Redis.respond_to?(:connect) ? Redis.connect(:thread_safe => true) : "localhost:6379"

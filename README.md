@@ -3,16 +3,25 @@
 A small redis database peeker (or explorer) with a web interface! yay!
 :D
 
-*Please note that this is a developer preview, don't use it :D*
+*Please note that this is a developer preview, don't use it in production :D*
 
 ## Running
 
 ```bash
-# start a redis server
+# You need to have redis running so start it
 redis-server
 
-# start redispeek
-rackup
+# since this gem has not been released clone the repo to your hard drive
+git clone git@github.com:lmmendes/redispeek.git
+
+# enter the redispeek folder and run "bundle" command
+bundle
+
+# start redispeek via bin
+ruby bin/redispeek
+
+# to kill the redispeek server pass the "-K" argument to the redispeek bin
+ruby bin/redispeek -K
 ```
 
 ## Bug reports and other issues
@@ -33,6 +42,6 @@ future version unintentionally.
 
 ## License
 
-Colombo is free software distributed under the terms of the MIT license
+Redispeek is free software distributed under the terms of the MIT license
 reproduced [here](http://opensource.org/licenses/mit-license.html).
 
